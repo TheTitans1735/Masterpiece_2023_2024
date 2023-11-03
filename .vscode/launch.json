@@ -1,0 +1,43 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Runs",
+			"type": "ev3devBrowser",
+			"request": "launch",
+			"program": "/home/robot/${workspaceRootFolderName}/runs.py",
+			"interactiveTerminal": false
+		},
+		{
+			"name": "Test_runs",
+			"type": "ev3devBrowser",
+			"request": "launch",
+			"program": "/home/robot/${workspaceRootFolderName}/test_runs.py",
+			"interactiveTerminal": false
+		},
+		{
+			"name": "motors_drive",
+			"type": "ev3devBrowser",
+			"request": "launch",
+			"program": "/home/robot/${workspaceRootFolderName}/motors_drive.py",
+			"interactiveTerminal": false,
+		},
+		{
+			"name": "wireless control Download and Run",
+			"type": "ev3devBrowser",
+			"request": "launch",
+			"program": "/home/robot/${workspaceRootFolderName}/wireless control.py",
+			"interactiveTerminal": false
+		},
+		{
+			"name": "Wheel clean",
+			"type": "ev3devBrowser",
+			"request": "launch",
+			"program": "/home/robot/${workspaceRootFolderName}/wheal_clean.py",
+			"interactiveTerminal": false
+		}
+	]
+}
