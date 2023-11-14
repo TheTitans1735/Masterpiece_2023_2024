@@ -27,37 +27,25 @@ ilan = Robot()
 def program_test():
     debug = False
     ilan.pid_gyro(47,250)
+    ilan.drive_by_seconds(100,1)
+    wait(1)
     ilan.wait_for_button("Drive back", debug)
-    ilan.pid_gyro(43,300,Forward_Is_True= False,precise_distance= False)
+    ilan.pid_gyro(50,250,Forward_Is_True= False,precise_distance= False)
 
 @timeit
 def M01_3D_Movie():
 
     """מבצע את משימה M01"""
 
-    #  ביצוע משימה M15
-    # 2023-01-18 rtm changed the run - added slide in front of arm. More accurate - so reduced 4->3 times push
-    ilan.speed_formula(31.5,300)
-    ilan.pid_gyro(10,200,False,precise_distance = False)
-    ilan.turn(-45)
-    ilan.speed_formula(47,400) 
-    ilan.turn(95)
-    ilan.drive_by_seconds(120,2)
-    for i in range(4):
-        ilan.drive_by_seconds(120,1)
-        wait(500)
-        ilan.pid_gyro(3.5,Forward_Is_True = False,precise_distance = False)
-    ilan.pid_gyro(4,200,False,precise_distance = False)
-    ilan.turn(90)
-    # חזרה לבית
-    ilan.drive_by_seconds(-300,1)
-    ilan.turn(10)
-    ilan.speed_formula(85,500)
-    ilan.run_straight(distance=20)
+    #  ביצוע משימה M01
+    ilan.pid_gyro(35,250)
+    ilan.turn(70)
+    ilan.turn(-75)
+    ilan.pid_gyro(30,300,Forward_Is_True=False,precise_distance=False)
 
 @timeit
 def run_2():
-    """מבצע את משימות M08,M14"""
+    """מבצע את משימות M13"""
     pass
 
 
