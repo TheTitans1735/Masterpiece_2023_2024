@@ -274,7 +274,7 @@ class Robot:
         wait(200)
         self.robot.settings(80,40) 
         print("distance: " + str(self.robot.distance()) + " gyro: " + str(self.gyro_sensor.angle()))
-
+        print("Finished PID Gyro driving.")
 
         
     ##### PID GYRO UNTIL COLOR #####
