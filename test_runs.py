@@ -38,16 +38,16 @@ def M01_3D_Movie():
     """מבצע את משימה M01"""
 
     #  ביצוע משימה M01
-    ilan.pid_gyro(35,250)
-    ilan.turn(70)
-    ilan.turn(-75)
-    ilan.pid_gyro(30,300,Forward_Is_True=False,precise_distance=False)
+    ilan.pid_gyro(19,250)
+    ilan.turn(50)
+    ilan.turn(-35)
+    ilan.pid_gyro(19,300,Forward_Is_True=False,precise_distance=False)
 
 @timeit
-def run_2():
-    """מבצע את משימות M13"""
-    pass
-
+def M08_Dolly_Camera():
+    """מבצע את משימות M08"""
+    ilan.speed_formula(37.1,300)
+    ilan.speed_formula(37.1,300,False)
 
 @timeit
 def run_3():
@@ -91,7 +91,7 @@ def running ():
     Runs = [
         ("1 - 3D movie", M01_3D_Movie),
         ("program test", program_test),
-        ("3 - ", run_3),
+        ("3 - Dolly Camera", M08_Dolly_Camera),
         ("4 - ", run_4),
         ("5 - ", run_5),
     ]
