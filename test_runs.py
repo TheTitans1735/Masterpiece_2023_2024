@@ -30,7 +30,7 @@ def program_test():
     ilan.drive_by_seconds(100,1)
     wait(1)
     ilan.wait_for_button("Drive back", debug)
-    ilan.pid_gyro(50,250,Forward_Is_True= False,precise_distance= False)
+    ilan.pid_gyro(53,250,Forward_Is_True= False,precise_distance= False)
 
 @timeit
 def M01_3D_Movie():
@@ -41,13 +41,14 @@ def M01_3D_Movie():
     ilan.pid_gyro(19,250)
     ilan.turn(50)
     ilan.turn(-35)
-    ilan.pid_gyro(19,300,Forward_Is_True=False,precise_distance=False)
+    ilan.pid_gyro(19,300,False,precise_distance=False)
 
 @timeit
 def M08_Dolly_Camera():
     """מבצע את משימות M08"""
-    ilan.speed_formula(37.1,300)
-    ilan.speed_formula(37.1,300,False)
+    ilan.pid_gyro(36.8,300,Kp=0, precise_distance=False)
+    ilan.wait_for_button(debug=True,text="Drive Back")
+    ilan.pid_gyro(36.8,300,False,Kp=0, precise_distance=False)
 
 @timeit
 def run_3():
@@ -59,7 +60,7 @@ def run_4():
 
     """מבצע את משימה M04 ואוסף את יחידות המים"""
 
-    pass
+    
 
 
 @timeit
