@@ -314,7 +314,7 @@ class Robot:
 
     ##### PID Follow Line #####
 
-    def pid_follow_line(self, distance, speed, line_sensor, stop_condition = lambda: False, Kp = 0.55 ,Ki = 0.01, white_is_right = True, Kd=0.07):
+    def pid_follow_line(self, distance, speed, line_sensor, stop_condition = lambda: False, Kp = 0.4,Ki = 0.01, white_is_right = True, Kd=0.07):
         """
         PID מעקב אחרי קו עם מנגנון 
         """
@@ -416,7 +416,7 @@ class Robot:
     ##### PID FOLLOW RIGHT LINE UNTIL LEFT DETECT COLOR #####
 
     def pid_follow_line_until_other_detect_color (self, lines_till_stop, follow_color_sensor, detection_color_sensor,
-                                                    speed = 90, white_is_right = True, stop_color = Color.BLACK, kp = 0.55, ki = 0.01, kd = 0.07):
+                                                    speed = 150, white_is_right = True, stop_color = Color.BLACK, kp = 0.55, ki = 0.01, kd = 0.07):
         """
         סע על הקו השחור עד זיהוי כמות מסויימת של קווים שחורים עם חיישן הצבע השני
         """

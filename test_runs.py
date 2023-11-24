@@ -40,15 +40,15 @@ def M01_3D_Movie():
     #  ביצוע משימה M01
     ilan.pid_gyro(19,250)
     ilan.turn(50)
-    ilan.turn(-35)
+    ilan.turn(-45)
     ilan.pid_gyro(19,300,False,precise_distance=False)
 
 @timeit
 def M08_Dolly_Camera():
     """מבצע את משימות M08"""
-    ilan.pid_gyro(36.8,300,Kp=0, precise_distance=False)
-    ilan.wait_for_button(debug=True,text="Drive Back")
-    ilan.pid_gyro(36.8,300,False,Kp=0, precise_distance=False)
+    ilan.pid_gyro(43.8,320,Kp=0, precise_distance=False)
+    ilan.wait_for_button(debug=False,text="Drive Back")
+    ilan.pid_gyro(43.8,300,False,Kp=0, precise_distance=False)
 
 @timeit
 def run_3():
@@ -56,12 +56,15 @@ def run_3():
 
 
 @timeit
-def run_4():
+def M02_switch_scenery():
 
-    """מבצע את משימה M04 ואוסף את יחידות המים"""
+    """מבצע משימה M02"""
 
-    
-
+    # ilan.pid_follow_line_until_other_detect_color(
+        # 5,speed=100,white_is_right=False,follow_color_sensor=ilan.color_sensor_left,
+        # detection_color_sensor=ilan.color_sensor_left
+    # )
+    ilan.pid_follow_line(50,100,ilan.color_sensor_left,white_is_right=False)
 
 @timeit
 def run_5(): 
@@ -93,7 +96,7 @@ def running ():
         ("1 - 3D movie", M01_3D_Movie),
         ("program test", program_test),
         ("3 - Dolly Camera", M08_Dolly_Camera),
-        ("4 - ", run_4),
+        ("4 - switch scenery", M02_switch_scenery),
         ("5 - ", run_5),
     ]
 
