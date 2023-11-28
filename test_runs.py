@@ -60,11 +60,13 @@ def M02_switch_scenery():
 
     """מבצע משימה M02"""
 
-    # ilan.pid_follow_line_until_other_detect_color(
-        # 5,speed=100,white_is_right=False,follow_color_sensor=ilan.color_sensor_left,
-        # detection_color_sensor=ilan.color_sensor_left
-    # )
-    ilan.pid_follow_line(50,100,ilan.color_sensor_left,white_is_right=False)
+    ilan.pid_gyro(50,300,precise_distance=False)
+    ilan.turn(-75)
+    for i in range (2):
+        ilan.drive_by_seconds(100,1)
+        ilan.drive_by_seconds(-75,1)
+    ilan.turn(65)
+    ilan.drive_by_seconds(-500,1.5)
 
 @timeit
 def run_5(): 
@@ -131,8 +133,8 @@ def running ():
 
             if Button.CENTER in ilan.ev3.buttons.pressed():
 
-                if current_run == 0:
-                    elsapsed_time.reset()
+                # if current_run == 0:
+                elsapsed_time.reset()
 
                 Runs[current_run][1]()
             
