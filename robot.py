@@ -336,8 +336,7 @@ class Robot:
         
         # Calculate the light threshold. Choose values based on your measurements.
         BLACK = 6
-        WHITE = 71
-
+        WHITE = 69
         threshold = (BLACK + WHITE) / 2
 
         # set drive speed as speed of paremeter
@@ -366,7 +365,7 @@ class Robot:
             error = line_sensor.reflection() - threshold # P
             integral = integral + error # I
             derivative = error - last_error # D
-            
+            print(line_sensor.reflection())
             # Calculate the turn rate.
             turn_rate = PROPORTIONAL_GAIN * error + DERIVATIVE_GAIN * derivative + INTEGRAL_GAIN * integral
 
