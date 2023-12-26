@@ -14,6 +14,7 @@ import time
 """
 All Robot actions
 """
+
 class Robot:
 
     ##### ROBOT TRAITS #####

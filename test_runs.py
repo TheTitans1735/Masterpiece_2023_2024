@@ -39,7 +39,7 @@ def M01_3D_Movie():
 
     #  ביצוע משימה M01
     ilan.pid_gyro(19,250)
-    ilan.turn(50)
+    ilan.turn(30)
     ilan.turn(-45)
     ilan.pid_gyro(19,300,False,precise_distance=False)
 
@@ -51,30 +51,67 @@ def M08_Dolly_Camera():
     ilan.pid_gyro(43.8,300,False,Kp=0, precise_distance=False)
 
 @timeit
-def run_3():
-    pass
+def M10_Sound_Mixr():
+    """מבצע את משימות M10"""
+    debug = False
+    # ilan.speed_formula(44.5,400)
+    ilan.drive_by_seconds(400,2)
+    ilan.wait_for_button(text="df")
+    ilan.turn(14)
+    ilan.speed_formula(40,400,False)
+    ilan.turn(-80)
+    ilan.speed_formula(13,450)
+    #ilan.wait_for_button(text="turn")
+    ilan.turn(30)
+    ilan.drive_by_seconds(-200,1)
 
+@timeit
+def fall
+6+():
+ """מבצע משימות 14"""
 
 @timeit
 def M02_switch_scenery():
 
-    """מבצע משימה M02"""
+    """מבצע משימות M02 M03"""
 
-    ilan.pid_gyro(50,300,precise_distance=False)
-    ilan.turn(-75)
-    for i in range (2):
-        ilan.drive_by_seconds(100,1)
-        ilan.drive_by_seconds(-75,1)
-    ilan.turn(65)
-    ilan.drive_by_seconds(-500,1.5)
+    ilan.turn(-3)
+    # ilan.wait_for_button(text="eeee")
+    #ilan.pid_gyro(56,300,precise_distance=False)
+    ilan.pid_gyro(60,250)
+    ilan.turn(-65,200)
+    ilan.drive_by_seconds(100,1)
+    ilan.drive_by_seconds(-75,1)
+    ilan.drive_by_seconds(100,1)
+    ilan.drive_by_seconds(-70,1.5)
+    ilan.wait_for_button(text="turn")
+    ilan.turn(135,200)
+    # ilan.drive_by_seconds(-500,2)
+    ilan.wait_for_button(text="drive forword")
+    ilan.pid_gyro(39,250)
+    ilan.wait_for_button(text="turn")
+    ilan.turn(-90,200)
+    ilan.pid_gyro(5,250)
+
 
 @timeit
-def run_5(): 
+def Virtual_reality_artist_Creation_machine(): 
 
-    """ביצוע משימה M03"""
+    """מבצע משימה M12,M13"""
 
-    pass
+    ilan.pid_gyro(50,250,precise_distance=False)
+    # ilan.wait_for_button(text="text",debug=True)
+    ilan.left_medium_motor.dc(75)
+    wait(2400)
+    ilan.left_medium_motor.stop()
+    ilan.drive_by_seconds(-250,2.011)
+    # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
+
+@timeit
+def M08_Doli_camera_2():
     
+    """מבצע משימה M08 המשך"""
+
 
 TEXT_MENU = """Choose Run: 
   < - Left run 
@@ -99,8 +136,10 @@ def running ():
         ("program test", program_test),
         ("3 - Dolly Camera", M08_Dolly_Camera),
         ("4 - switch scenery", M02_switch_scenery),
-        ("5 - ", run_5),
-    ]
+        ("5 - Sound Mixer", M10_Sound_Mixr),
+        ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("7 - Dolly Camera",M08_Doli_camera_2),
+        ]
 
     current_run = 0
     ilan.write(Runs[current_run][0])
@@ -109,7 +148,7 @@ def running ():
     while True:
 
         try:
-        
+
 
             if (Button.UP in ilan.ev3.buttons.pressed()):
                 current_run += 1
@@ -130,6 +169,9 @@ def running ():
                 ilan.write(Runs[current_run][0])
                 
                 wait(300)
+
+
+
 
             if Button.CENTER in ilan.ev3.buttons.pressed():
 
