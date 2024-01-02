@@ -54,8 +54,8 @@ def M08_Dolly_Camera():
 def M10_Sound_Mixr():
     """מבצע את משימות M10"""
     debug = False
-    # ilan.speed_formula(44.5,400)
-    ilan.drive_by_seconds(400,2)
+    # ilan.speed_formula(45,400)
+    #ilan.drive_by_seconds(400,2)
     ilan.wait_for_button(text="df")
     ilan.turn(14)
     ilan.speed_formula(40,400,False)
