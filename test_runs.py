@@ -54,11 +54,19 @@ def M08_Dolly_Camera():
 def M10_Sound_Mixr():
     """מבצע את משימות M10"""
     debug = False
+<<<<<<< Updated upstream
     # ilan.speed_formula(45,400)
     #ilan.drive_by_seconds(400,2)
     ilan.wait_for_button(text="df")
     ilan.turn(14)
     ilan.speed_formula(40,400,False)
+=======
+    ilan.speed_formula(44.7,400)
+    # ilan.drive_by_seconds(400,0.8)
+    ilan.turn(7)
+    ilan.wait_for_button("go back")
+    ilan.speed_formula(41,400,False)
+>>>>>>> Stashed changes
     ilan.turn(-80)
     ilan.speed_formula(13,450)
     #ilan.wait_for_button(text="turn")
@@ -66,10 +74,19 @@ def M10_Sound_Mixr():
     ilan.drive_by_seconds(-200,1)
 
 @timeit
-def fall
-6+():
+def M14_flower():
  """מבצע משימות 14"""
 
+ ilan.pid_gyro(72,300)
+ ilan.turn(-50)
+ ilan.pid_gyro(26)
+ ilan.turn(40)
+ ilan.pid_gyro(50)
+ ilan.pid_gyro(-9)
+ ilan.turn(43)
+ ilan.pid_gyro(-14)
+ ilan.turn(63)
+ ilan.pid_gyro(6)
 @timeit
 def M02_switch_scenery():
 
@@ -80,10 +97,10 @@ def M02_switch_scenery():
     #ilan.pid_gyro(56,300,precise_distance=False)
     ilan.pid_gyro(60,250)
     ilan.turn(-65,200)
-    ilan.drive_by_seconds(100,1)
-    ilan.drive_by_seconds(-75,1)
-    ilan.drive_by_seconds(100,1)
-    ilan.drive_by_seconds(-70,1.5)
+    times_yali = 2
+    for i in range (times_yali):
+        ilan.drive_by_seconds(100,1)
+        ilan.drive_by_seconds(-75,1)
     ilan.wait_for_button(text="turn")
     ilan.turn(135,200)
     # ilan.drive_by_seconds(-500,2)
@@ -92,7 +109,6 @@ def M02_switch_scenery():
     ilan.wait_for_button(text="turn")
     ilan.turn(-90,200)
     ilan.pid_gyro(5,250)
-
 
 @timeit
 def Virtual_reality_artist_Creation_machine(): 
@@ -111,7 +127,14 @@ def Virtual_reality_artist_Creation_machine():
 def M08_Doli_camera_2():
     
     """מבצע משימה M08 המשך"""
-
+    ilan.pid_gyro(34,250)
+    ilan.pid_gyro(-10,250)
+    ilan.turn(-10)
+    ilan.pid_gyro(-9,200)
+    ilan.turn(-35,speed=75)
+    ilan.pid_gyro(-3,200)
+    ilan.turn(35)
+    ilan.pid_gyro(-35,300)
 
 TEXT_MENU = """Choose Run: 
   < - Left run 
@@ -130,7 +153,12 @@ def running ():
 
     ilan.beep()
         # ilan.write(TEXT_MENU)
-       
+    # running = True
+    # while running:
+    #      ilan.color = input("color: ")
+    #      if ilan.color == "yellow" or ilan.color == "pink" or ilan.color == "blue":
+    #         running = False
+
     Runs = [
         ("1 - 3D movie", M01_3D_Movie),
         ("program test", program_test),
@@ -189,6 +217,5 @@ def running ():
         except Exception as EX :
             print(str(EX))
             wait(1500)
-            
             
 running()
