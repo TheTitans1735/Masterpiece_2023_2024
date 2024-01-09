@@ -54,19 +54,16 @@ def M08_Dolly_Camera():
 def M10_Sound_Mixr():
     """מבצע את משימות M10"""
     debug = False
-<<<<<<< Updated upstream
     # ilan.speed_formula(45,400)
     #ilan.drive_by_seconds(400,2)
     ilan.wait_for_button(text="df")
     ilan.turn(14)
     ilan.speed_formula(40,400,False)
-=======
     ilan.speed_formula(44.7,400)
     # ilan.drive_by_seconds(400,0.8)
     ilan.turn(7)
     ilan.wait_for_button("go back")
     ilan.speed_formula(41,400,False)
->>>>>>> Stashed changes
     ilan.turn(-80)
     ilan.speed_formula(13,450)
     #ilan.wait_for_button(text="turn")
@@ -136,6 +133,30 @@ def M08_Doli_camera_2():
     ilan.turn(35)
     ilan.pid_gyro(-35,300)
 
+@timeit
+def Show():
+
+    """M06 M07מבצע משימות"""
+    Debug=False
+    # Debug=True
+    ilan.left_medium_motor.run_time(0.5)
+    ilan.pid_gyro(46,200,False)
+    ilan.wait_for_button("turn",Debug)
+    ilan.turn(-100)
+    ilan.wait_for_button("drive back",Debug)
+    ilan.drive_by_seconds(-200,0.8)
+    ilan.wait_for_button("drive forword",Debug)
+    ilan.drive_by_seconds(200,1.5)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(600,-180)
+    ilan.wait_for_button("drive back",Debug)
+    ilan.pid_gyro(15,250,False)
+    ilan.wait_for_button("turn",Debug)
+    ilan.turn(-67)
+    ilan.wait_for_button("drive back",Debug)
+    ilan.pid_gyro(65,300,False,precise_distance=False)
+    ilan.turn(90)
+
 TEXT_MENU = """Choose Run: 
   < - Left run 
   > - Right AP 
@@ -166,7 +187,8 @@ def running ():
         ("4 - switch scenery", M02_switch_scenery),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("7 - Dolly Camera",M08_Doli_camera_2),
+        ("7 - Dolly Camera B",M08_Doli_camera_2),
+        ("8 - Show On!!!",Show),
         ]
 
     current_run = 0
