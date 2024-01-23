@@ -46,10 +46,12 @@ def M01_3D_Movie():
 @timeit
 def M08_Dolly_Camera():
     """מבצע את משימות M08"""
-    ilan.pid_gyro(10,320,Kp=0, precise_distance=False)
+    ilan.pid_gyro(18.5,250,Kp=0, precise_distance=False)
+    wait(500)
+    ilan.speed_formula(17.5,320)
     wait(500)
     ilan.wait_for_button(debug=False,text="Drive Back")
-    ilan.pid_gyro(43.8,300,False,Kp=0, precise_distance=False)
+    ilan.pid_gyro(48.8,300,Forward_Is_True=False,Kp=0, precise_distance=False)
 
 @timeit
 def M10_Sound_Mixr():
@@ -83,7 +85,7 @@ def M14_flower():
     ilan.pid_gyro(6)
 
 @timeit
-def flawer():
+def flower():
 # """מבצע משימות M14"""
     
     precise_distance=False
@@ -162,21 +164,22 @@ def Show():
     # ilan.wait_for_button("",Debug)
     ilan.pid_gyro(46,200,False,precise_distance=True)
     ilan.wait_for_button("turn",Debug)
-    ilan.turn(-85)
-    ilan.wait_for_button("drive back")
+    ilan.turn(-100)
+    ilan.wait_for_button("drive back",Debug)
     # ilan.drive_by_seconds(-200,0.8)
     # ilan.wait_for_button("drive forword",Debug)
     # ilan.drive_by_seconds(200,1.5)
     ilan.drive_by_seconds(200,1)
     ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(600,-250)
+    ilan.left_medium_motor.run_angle(800,-250)
     ilan.wait_for_button("drive back",Debug)
-    ilan.pid_gyro(13,250,False,precise_distance=False)
+    ilan.drive_by_seconds(-300,0.5)
     ilan.wait_for_button("turn",Debug)
-    ilan.turn(-67)
+    ilan.left_medium_motor.run_angle(600,250,wait=False)
+    ilan.turn(-50)
     ilan.wait_for_button("drive back",Debug)
-    ilan.pid_gyro(65,300,False,precise_distance=False)
-    ilan.left_medium_motor.run_angle(600,250)
+    # ilan.pid_gyro(65,300,False,precise_distance=False)
+    ilan.drive_by_seconds(-400,2)
     # ilan.turn(90)
 
 TEXT_MENU = """Choose Run: 
@@ -211,7 +214,7 @@ def running ():
         ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
         ("7 - Dolly Camera B",M08_Doli_camera_2),
         ("8 - Show On!!!",Show),
-        ("9 - flawer",flawer)
+        ("9 - flower",flower)
         ]
 
     current_run = 0
