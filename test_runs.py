@@ -48,10 +48,10 @@ def M08_Dolly_Camera():
     """מבצע את משימות M08"""
     ilan.pid_gyro(18.5,250,Kp=0, precise_distance=False)
     wait(500)
-    ilan.speed_formula(17.5,320)
+    ilan.drive_by_seconds(320,1)
     wait(500)
     ilan.wait_for_button(debug=False,text="Drive Back")
-    ilan.pid_gyro(48.8,300,Forward_Is_True=False,Kp=0, precise_distance=False)
+    ilan.speed_formula(48.8,300,Forward_Is_True=False,Kp=0)
 
 @timeit
 def M10_Sound_Mixr():
@@ -113,8 +113,9 @@ def M02_switch_scenery():
     ilan.turn(-3)
     # ilan.wait_for_button(text="eeee")
     #ilan.pid_gyro(56,300,precise_distance=False)
-    ilan.pid_gyro(60,250)
-    ilan.turn(-65,200)
+    ilan.pid_gyro(59,250)
+    ilan.turn(-70,200)
+    ilan.stop_on_line
     times_yali = 2
     for i in range (times_yali):
         ilan.drive_by_seconds(100,1)
