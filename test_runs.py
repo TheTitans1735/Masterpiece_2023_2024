@@ -23,14 +23,14 @@ ilan = Robot()
 
 ##### Center Run #####
 
-@timeit
-def program_test():
-    debug = False
-    ilan.pid_gyro(47,250)
-    ilan.drive_by_seconds(100,1)
-    wait(1)
-    ilan.wait_for_button("Drive back", debug)
-    ilan.pid_gyro(53,250,Forward_Is_True= False,precise_distance= False)
+# @timeit
+# def program_test():
+#     debug = False
+#     ilan.pid_gyro(47,250)
+#     ilan.drive_by_seconds(100,1)
+#     wait(1)
+#     ilan.wait_for_button("Drive back", debug)
+#     ilan.pid_gyro(53,250,Forward_Is_True= False,precise_distance= False)
 
 @timeit
 def M01_3D_Movie():
@@ -139,21 +139,27 @@ def Virtual_reality_artist_Creation_machine():
     ilan.left_medium_motor.dc(75)
     wait(2400)
     ilan.left_medium_motor.stop()
-    ilan.drive_by_seconds(-250,2.011)
+    ilan.drive_by_seconds(-250,2.5)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
 
 @timeit
 def M08_Doli_camera_2():
-    
+    ttt=False
     """מבצע משימה M08 המשך"""
-    ilan.pid_gyro(34,250)
-    ilan.pid_gyro(-10,250)
-    ilan.turn(-10)
-    ilan.pid_gyro(-9,200)
-    ilan.turn(-35,speed=75)
-    ilan.pid_gyro(-3,200)
-    ilan.turn(35)
-    ilan.pid_gyro(-35,300)
+    ilan.pid_gyro(34,300,precise_distance=False)
+    wait(200)
+    ilan.wait_for_button(debug = ttt,text = "turn")
+    ilan.turn(-0.75)
+    ilan.wait_for_button(debug = ttt,text = "drive back")
+    ilan.pid_gyro(15.95,230,Forward_Is_True=False)
+    ilan.wait_for_button(debug = ttt,text = "turn")
+    ilan.turn(-35)
+    ilan.pid_gyro(10,300, Forward_Is_True=False)
+    ilan.wait_for_button(debug = ttt,text = "turn")
+    ilan.turn(10)
+    ilan.drive_by_seconds(-100, 0.5)
+    ilan.turn(10, 50)
+    ilan.drive_by_seconds(-400, 1.5)
 
 @timeit
 def Show():
@@ -208,7 +214,6 @@ def running ():
 
     Runs = [
         ("1 - 3D movie", M01_3D_Movie),
-        ("program test", program_test),
         ("3 - Dolly Camera", M08_Dolly_Camera),
         ("4 - switch scenery", M02_switch_scenery),
         ("5 - Sound Mixer", M10_Sound_Mixr),
