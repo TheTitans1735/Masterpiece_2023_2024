@@ -85,10 +85,13 @@ def flower():
     ilan.speed_formula(16,300,Forward_Is_True=False)
     # ilan.wait_for_button(text="g")
     # ilan.pid_gyro(-9)
-    ilan.turn(16,77.12345)
-    ilan.pid_gyro(-16.5,320)
-    # ilan.turn(80)
-    
+    ilan.turn(30)
+    ilan.pid_gyro(-10,200)
+    ilan.turn(90)
+    ilan.pid_gyro(-15,200)
+    ilan.turn(-45)
+    ilan.pid_gyro(20,200)
+
 
 @timeit
 def M02_switch_scenery():
@@ -128,23 +131,13 @@ def Virtual_reality_artist_Creation_machine():
     ilan.left_medium_motor.dc(75)
     wait(2400)
     ilan.left_medium_motor.stop()
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    ilan.drive_by_seconds(-250,2.5)
+    # ilan.drive_by_seconds(-250,2.011)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
-=======
-    # # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
->>>>>>> Stashed changes
-=======
-    # # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
->>>>>>> Stashed changes
 
 @timeit
 def M08_Doli_camera_2():
-    ttt=False
     """מבצע משימה M08 המשך"""
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+    ttt=False
     ilan.pid_gyro(34,300,precise_distance=False)
     wait(200)
     ilan.wait_for_button(debug = ttt,text = "turn")
@@ -159,23 +152,6 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-100, 0.5)
     ilan.turn(10, 50)
     ilan.drive_by_seconds(-400, 1.5)
-=======
-=======
->>>>>>> Stashed changes
-    # ilan.pid_gyro(34,150)
-    ilan.speed_formula(34,375)
-    ilan.pid_gyro(20,200,Forward_Is_True=False)
-    ilan.wait_for_button(text="turn")
-    ilan.turn(-10)
-    ilan.pid_gyro(-9,200)
-    ilan.turn(-35,speed=75)
-    ilan.pid_gyro(-3,200)
-    ilan.turn(35)
-    ilan.pid_gyro(35,300,Forward_Is_True=False)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 @timeit
 def Show():
@@ -230,6 +206,7 @@ def running ():
 
     Runs = [
         ("1 - 3D movie", M01_3D_Movie),
+        # ("program test", program_test),
         ("3 - Dolly Camera", M08_Dolly_Camera),
         ("4 - switch scenery", M02_switch_scenery),
         ("5 - Sound Mixer", M10_Sound_Mixr),
