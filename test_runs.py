@@ -70,40 +70,25 @@ def M10_Sound_Mixr():
     ilan.drive_by_seconds(-200,1)
 
 @timeit
-def M14_flower():
-#  """מבצע משימות 14"""
- 
-    ilan.pid_gyro(72,300)
-    ilan.turn(-50)
-    ilan.pid_gyro(26)
-    ilan.turn(40)
-    ilan.pid_gyro(50)
-    ilan.pid_gyro(-9)
-    ilan.turn(43)
-    ilan.pid_gyro(-14)
-    ilan.turn(63)
-    ilan.pid_gyro(6)
-
-@timeit
 def flower():
 # """מבצע משימות M14"""
     
     precise_distance=False
-    ilan.pid_gyro(61,300,precise_distance=False)
-    ilan.wait_for_button("a")
-    ilan.turn(-20.1)
-    ilan.wait_for_button("after turn")
-    ilan.pid_gyro(43)
+    # ilan.pid_gyro(61,300,precise_distance=False)
+    ilan.speed_formula(53,400)
+    # ilan.wait_for_button("a")
+    ilan.turn(-28)
+    # ilan.wait_for_button("after turn",debug=True)
+    ilan.pid_gyro(49,320)
     # ilan.turn(40)
-    ilan.wait_for_button(text="g")
-    ilan.pid_gyro(-11,150)
+    # ilan.wait_for_button(text="g")
+    ilan.speed_formula(16,300,Forward_Is_True=False)
+    # ilan.wait_for_button(text="g")
     # ilan.pid_gyro(-9)
-    ilan.turn(30)
-    ilan.pid_gyro(-10,200)
-    ilan.turn(90)
-    ilan.pid_gyro(-15,200)
-    ilan.turn(-45)
-    ilan.pid_gyro(20,200)
+    ilan.turn(16,77.12345)
+    ilan.pid_gyro(-16.5,320)
+    # ilan.turn(80)
+    
 
 @timeit
 def M02_switch_scenery():
@@ -116,10 +101,10 @@ def M02_switch_scenery():
     ilan.pid_gyro(59,250)
     ilan.turn(-70,200)
     ilan.stop_on_line
-    times_yali = 2
-    for i in range (times_yali):
-        ilan.drive_by_seconds(100,1)
-        ilan.drive_by_seconds(-75,1)
+    ilan.drive_by_seconds(100,1.2)
+    ilan.drive_by_seconds(-75,1)
+    ilan.drive_by_seconds(100,1)
+    ilan.drive_by_seconds(-75,1)
     ilan.wait_for_button(text="turn")
     ilan.turn(135,200)
     # ilan.drive_by_seconds(-500,2)
@@ -134,18 +119,32 @@ def Virtual_reality_artist_Creation_machine():
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(50,250,precise_distance=False)
-    # ilan.wait_for_button(text="text",debug=True)
+    ilan.pid_gyro(48,250,precise_distance=False)
+    # # ilan.wait_for_button(text="text",debug=True)
+    ilan.left_medium_motor.dc(75)
+    wait(1000)
+    ilan.left_medium_motor.stop()
+    ilan.pid_gyro(2,300)
     ilan.left_medium_motor.dc(75)
     wait(2400)
     ilan.left_medium_motor.stop()
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     ilan.drive_by_seconds(-250,2.5)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
+=======
+    # # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
+>>>>>>> Stashed changes
+=======
+    # # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
+>>>>>>> Stashed changes
 
 @timeit
 def M08_Doli_camera_2():
     ttt=False
     """מבצע משימה M08 המשך"""
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     ilan.pid_gyro(34,300,precise_distance=False)
     wait(200)
     ilan.wait_for_button(debug = ttt,text = "turn")
@@ -160,6 +159,23 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-100, 0.5)
     ilan.turn(10, 50)
     ilan.drive_by_seconds(-400, 1.5)
+=======
+=======
+>>>>>>> Stashed changes
+    # ilan.pid_gyro(34,150)
+    ilan.speed_formula(34,375)
+    ilan.pid_gyro(20,200,Forward_Is_True=False)
+    ilan.wait_for_button(text="turn")
+    ilan.turn(-10)
+    ilan.pid_gyro(-9,200)
+    ilan.turn(-35,speed=75)
+    ilan.pid_gyro(-3,200)
+    ilan.turn(35)
+    ilan.pid_gyro(35,300,Forward_Is_True=False)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 @timeit
 def Show():
