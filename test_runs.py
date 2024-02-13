@@ -154,11 +154,35 @@ def M08_Doli_camera_2():
     ilan.wait_for_button(debug = ttt,text = "turn")
     ilan.turn(10)
     ilan.drive_by_seconds(-100, 0.5)
-    ilan.turn(10, 50)
+    # ilan.turn(10, 50)
     ilan.drive_by_seconds(-400, 1.5)
 
 @timeit
 def Show():
+
+    """M06 M07מבצע משימות"""
+    Debug=True
+    speed_shay = 1200
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,-250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,-250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,-250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,-250)
+    ilan.wait_for_button("speen motor",Debug)
+    ilan.left_medium_motor.run_angle(speed_shay,250)
+
+
+@timeit
+def Show1():
 
     """M06 M07מבצע משימות"""
     Debug=False
