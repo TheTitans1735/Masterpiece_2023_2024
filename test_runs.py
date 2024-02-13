@@ -91,6 +91,10 @@ def flower():
     ilan.pid_gyro(-15,200)
     ilan.turn(-45)
     ilan.pid_gyro(20,200)
+    
+@timeit    
+def test():
+    ilan.drive_angle(30,100,80)
 
 
 @timeit
@@ -213,7 +217,8 @@ def running ():
         ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
         ("7 - Dolly Camera B",M08_Doli_camera_2),
         ("8 - Show On!!!",Show),
-        ("9 - flower",flower)
+        ("9 - flower",flower),
+        ("test",test)
         ]
 
     current_run = 0

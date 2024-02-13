@@ -305,7 +305,12 @@ class Robot:
     ##### RUN STRAIGHT ####
 
 
-
+    def drive_angle(self,distance,speed_left,speed_right):
+        while (abs(self.robot.distance()) < distance * 10):
+            self.left_motor.run(speed_left)
+            self.right_motor(speed_right)
+        self.robot.stop()
+    
     def run_straight (self, distance):
         """
         נסיעה ישרה לפי סנטימטרים
