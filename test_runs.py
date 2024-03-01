@@ -75,27 +75,31 @@ def flower():
     
     precise_distance=False
     # ilan.pid_gyro(61,300,precise_distance=False)
-    ilan.speed_formula(53,400)
+    ilan.right_medium_motor.dc(50)
+    ilan.right_medium_motor.stop()
+    ilan.speed_formula(55.5 ,400)
     # ilan.wait_for_button("a")
-    ilan.turn(-28)
+    ilan.turn(-36)
     # ilan.wait_for_button("after turn",debug=True)
-    ilan.pid_gyro(49,320)
+    ilan.pid_gyro(30,320)
+    ilan.turn(4)
+    ilan.pid_gyro(19,250)
     # ilan.turn(40)
     # ilan.wait_for_button(text="g")
-    ilan.speed_formula(16,300,Forward_Is_True=False)
+    ilan.speed_formula(13,300,Forward_Is_True=False)
     # ilan.wait_for_button(text="g")
     # ilan.pid_gyro(-9)
-    ilan.turn(30)
-    ilan.pid_gyro(-10,200)
-    ilan.turn(90)
-    ilan.pid_gyro(-15,200)
-    ilan.turn(-45)
-    ilan.pid_gyro(20,200)
+    ilan.turn(20)
+    ilan.pid_gyro(-19,200)
+    
+    
+    # ilan.pid_gyro(20,200)
     
 @timeit    
 def test():
-    ilan.drive_angle(30,100,80)
-
+    ilan.robot.drive(-50,10)
+    wait(2000)
+    ilan.robot.stop()
 
 @timeit
 def M02_switch_scenery():
@@ -209,6 +213,13 @@ def Show1():
     ilan.drive_by_seconds(-400,2)
     # ilan.turn(90)
 
+@timeit
+def up():
+
+    ilan.right_medium_motor.run_angle(400,1850)
+    # ilan.pid_gyro(2,200,Forward_Is_True=False)
+    # ilan.right_medium_motor.run_angle(600,1600)
+
 TEXT_MENU = """Choose Run: 
   < - Left run 
   > - Right AP 
@@ -242,8 +253,9 @@ def running ():
         ("7 - Dolly Camera B",M08_Doli_camera_2),
         ("8 - Show On!!!",Show),
         ("9 - flower",flower),
-        ("test",test)
-        ]
+        ("test",test),
+        ('up',up),
+    ]
 
     current_run = 0
     ilan.write(Runs[current_run][0])
