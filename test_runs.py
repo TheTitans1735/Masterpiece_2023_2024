@@ -72,8 +72,8 @@ def M10_Sound_Mixr():
 @timeit
 def flower():
 # """מבצע משימות M14"""
-    
-    precise_distance=False
+    debug=False
+    precise_distance=True
     # ilan.pid_gyro(61,300,precise_distance=False)
     ilan.right_medium_motor.dc(50)
     ilan.right_medium_motor.stop()
@@ -81,23 +81,31 @@ def flower():
     # ilan.wait_for_button("a")
     ilan.turn(-36)
     # ilan.wait_for_button("after turn",debug=True)
-    ilan.pid_gyro(30,320)
+    ilan.speed_formula(30,320)
     ilan.turn(4)
-    ilan.pid_gyro(19,250)
+    ilan.speed_formula(19,300)
     # ilan.turn(40)
     # ilan.wait_for_button(text="g")
     ilan.speed_formula(13,300,Forward_Is_True=False)
     # ilan.wait_for_button(text="g")
     # ilan.pid_gyro(-9)
     ilan.turn(20)
-    ilan.pid_gyro(-19,200)
-    
+    ilan.robot.drive(-100,-20)
+    wait(2200)
+    ilan.robot.stop()
+    ilan.pid_gyro_until_color_in_one_sensor(Color.WHITE,stop_on_right=False)
+    ilan.speed_formula(13,200)
+    ilan.wait_for_button("turn",debug)
+    ilan.turn(-22)
+    ilan.wait_for_button("drive",debug)
+    ilan.speed_formula(30,200,precise_distance=True)
+    ilan.turn(-90)
     
     # ilan.pid_gyro(20,200)
     
 @timeit    
 def test():
-    ilan.robot.drive(-50,10)
+    ilan.robot.drive(-100,-10)
     wait(2000)
     ilan.robot.stop()
 

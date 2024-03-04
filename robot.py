@@ -280,11 +280,11 @@ class Robot:
         
     ##### PID GYRO UNTIL COLOR #####
 
-    def  pid_gyro_until_color_in_one_sensor(self, stop_color = Color.BLACK, Ts = 150, Forward_Is_True = True, Kp = 3.06, Ki= 0.027, Kd = 3.02,):
+    def  pid_gyro_until_color_in_one_sensor(self, stop_color = Color.BLACK, Ts = 150, Forward_Is_True = True,stop_on_left = True,stop_on_right = True,  Kp = 3.06, Ki= 0.027, Kd = 3.02,):
 
         #הגדרת זיהוי שחור באחד מהחיישנים כתנאי עצירה
 
-        stop_if_one_black = lambda: self.color_sensor_right.color() != stop_color and self.color_sensor_left.color() != stop_color
+        stop_if_one_black = lambda: (self.color_sensor_right.color() != stop_color or not stop_on_right) and (self.color_sensor_left.color() != stop_color or not stop_on_left)
 
         #נסיעה בעזרת pid gyro תוך כדי שימוש בתנאי העצירה
 
