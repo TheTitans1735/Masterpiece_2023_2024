@@ -72,7 +72,7 @@ def M10_Sound_Mixr():
 @timeit
 def flower():
 # """מבצע משימות M14"""
-    debug=False
+    debug=True
     precise_distance=True
     # ilan.pid_gyro(61,300,precise_distance=False)
     ilan.right_medium_motor.dc(50)
@@ -80,33 +80,53 @@ def flower():
     ilan.speed_formula(55.5 ,400)
     # ilan.wait_for_button("a")
     ilan.turn(-36)
-    # ilan.wait_for_button("after turn",debug=True)
+    ilan.wait_for_button("after turn",debug=True)
     ilan.speed_formula(30,320)
+    ilan.wait_for_button("turn",debug)
     ilan.turn(4)
     ilan.speed_formula(19,300)
     # ilan.turn(40)
     # ilan.wait_for_button(text="g")
     ilan.speed_formula(13,300,Forward_Is_True=False)
-    # ilan.wait_for_button(text="g")
+    ilan.wait_for_button(text="g")
     # ilan.pid_gyro(-9)
     ilan.turn(20)
-    ilan.robot.drive(-100,-20)
+    ilan.wait_for_button("turn",debug)
+    ilan.speed_formula(-3,100)
+    ilan.robot.drive(-80,-24)
     wait(2200)
     ilan.robot.stop()
+    # ilan.wait_for_button("...")
+    ilan.speed_formula(10,250,Forward_Is_True=False)
     ilan.pid_gyro_until_color_in_one_sensor(Color.WHITE,stop_on_right=False)
-    ilan.speed_formula(13,200)
+    ilan.speed_formula(16,200)
     ilan.wait_for_button("turn",debug)
-    ilan.turn(-22)
+    ilan.turn(-190)
+    # ilan.turn(5)
     ilan.wait_for_button("drive",debug)
-    ilan.speed_formula(30,200,precise_distance=True)
-    ilan.turn(-90)
+    ilan.speed_formula(27,250,Forward_Is_True=False)
+    ilan.wait_for_button("Turn")
+    ilan.turn(90)
+    ilan.wait_for_button("Turn")
+    ilan.speed_formula(18,150,Forward_Is_True=False)
+    ilan.turn(-42)
+    ilan.wait_for_button("Turn")
+    ilan.speed_formula(3,70)
+    ilan.turn(14)
+    ilan.speed_formula(7,70)
+    ilan.right_medium_motor.run_angle(3500,250)
+
+    # ilan.speed_formula(15,250,Forward_Is_True=False)
+    # ilan.turn(-30)
+    # ilan.wait_for_button("...")
+    # ilan.speed_formula(12,80)
     
     # ilan.pid_gyro(20,200)
     
 @timeit    
 def test():
-    ilan.robot.drive(-100,-10)
-    wait(2000)
+    ilan.robot.drive(-100,-22)
+    wait(2200)
     ilan.robot.stop()
 
 @timeit
@@ -169,36 +189,36 @@ def M08_Doli_camera_2():
     # ilan.turn(10, 50)
     ilan.drive_by_seconds(-400, 1.5)
 
-@timeit
-def Show():
+# @timeit
+# def Show():
 
-    """M06 M07מבצע משימות"""
-    Debug=True
-    speed_shay = 1200
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,-250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,-250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,-250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,-250)
-    ilan.wait_for_button("speen motor",Debug)
-    ilan.left_medium_motor.run_angle(speed_shay,250)
+#     """M06 M07מבצע משימות"""
+#     Debug=True
+#     speed_shay = 1200
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,-250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,-250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,-250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,-250)
+#     ilan.wait_for_button("speen motor",Debug)
+#     ilan.left_medium_motor.run_angle(speed_shay,250)
 
 
 @timeit
 def Show1():
 
     """M06 M07מבצע משימות"""
-    Debug=False
-    # Debug=True
+    # Debug=False
+    Debug=True
     # ilan.left_medium_motor.run_time(400,800) 
     # ilan.wait_for_button("",Debug)
     ilan.pid_gyro(46,200,False,precise_distance=True)
@@ -215,7 +235,7 @@ def Show1():
     ilan.drive_by_seconds(-300,0.5)
     ilan.wait_for_button("turn",Debug)
     ilan.left_medium_motor.run_angle(600,250,wait=False)
-    ilan.turn(-50)
+    ilan.turn(-80)
     ilan.wait_for_button("drive back",Debug)
     # ilan.pid_gyro(65,300,False,precise_distance=False)
     ilan.drive_by_seconds(-400,2)
@@ -252,15 +272,14 @@ def running ():
     #         running = False
 
     Runs = [
-        ("1 - 3D movie", M01_3D_Movie),
+        ("1 - flower",flower),
         # ("program test", program_test),
         ("3 - Dolly Camera", M08_Dolly_Camera),
         ("4 - switch scenery", M02_switch_scenery),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
         ("7 - Dolly Camera B",M08_Doli_camera_2),
-        ("8 - Show On!!!",Show),
-        ("9 - flower",flower),
+        ("8 - Show On!!!",Show1),
         ("test",test),
         ('up',up),
     ]
