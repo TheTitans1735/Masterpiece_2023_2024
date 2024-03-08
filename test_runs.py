@@ -215,8 +215,7 @@ def Show1():
     # ilan.drive_by_seconds(200,1.5)
     ilan.drive_by_seconds(200,1.1)
     ilan.wait_for_button("speen motor",Debug)
-    wait(3
-         00)
+    wait(300)
     ilan.left_medium_motor.run_angle(600,-90)
     ilan.left_medium_motor.run_angle(900,-210)
     ilan.wait_for_button("drive back",Debug)
