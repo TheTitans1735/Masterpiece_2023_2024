@@ -46,12 +46,12 @@ def M01_3D_Movie():
 @timeit
 def M08_Dolly_Camera():
     """מבצע את משימות M08"""
-    ilan.pid_gyro(18.5,250,Kp=0, precise_distance=False)
-    wait(500)
-    ilan.drive_by_seconds(320,1)
+    ilan.pid_gyro(18.5,450,Kp=0,precise_distance=False)
+    wait(350)
+    ilan.drive_by_seconds(450,1)
     wait(500)
     ilan.wait_for_button(debug=False,text="Drive Back")
-    ilan.speed_formula(48.8,300,Forward_Is_True=False,Kp=0)
+    ilan.speed_formula(50.8,450,Forward_Is_True=False,Kp=0)
 
 @timeit
 def M10_Sound_Mixr():
@@ -130,6 +130,9 @@ def test():
     ilan.robot.drive(-100,360)
     wait(100000000000000000)
     ilan.robot.stop()
+    ilan.drive_angle(2,220,200)
+
+
 
 @timeit
 def M02_switch_scenery():
@@ -165,20 +168,17 @@ def M02_switch_scenery():
     ilan.turn(-15)
  
 
-@timeit
+@timeit         
 def Virtual_reality_artist_Creation_machine(): 
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(48,250,precise_distance=False)
+    ilan.pid_gyro(48 ,350,precise_distance=False)
     # # ilan.wait_for_button(text="text",debug=True)
-    ilan.left_medium_motor.dc(75)
-    wait(1000)
-    ilan.left_medium_motor.stop()
-    ilan.pid_gyro(2,300)
-    ilan.left_medium_motor.dc(75)
+    ilan.left_medium_motor.dc(160)
     wait(2400)
     ilan.left_medium_motor.stop()
+    ilan.pid_gyro(48,400,False,precise_distance=False)
     # ilan.drive_by_seconds(-250,2.011)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
 
@@ -233,7 +233,7 @@ def Show1():
     Debug=True
     # ilan.left_medium_motor.run_time(400,800) 
     # ilan.wait_for_button("",Debug)
-    ilan.pid_gyro(46,200,False,precise_distance=True)
+    ilan.pid_gyro(45,200,False,precise_distance=True)
     ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
     ilan.wait_for_button("drive back",Debug)
@@ -250,7 +250,7 @@ def Show1():
     ilan.turn(-80)
     ilan.wait_for_button("drive back",Debug)
     # ilan.pid_gyro(65,300,False,precise_distance=False)
-    ilan.drive_by_seconds(-400,2)
+    ilan.drive_by_seconds(-400,2.2)
     # ilan.turn(90)
 
 @timeit
