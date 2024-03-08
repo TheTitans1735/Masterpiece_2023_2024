@@ -306,10 +306,15 @@ class Robot:
 
 
     def drive_angle(self,distance,speed_left,speed_right):
+        self.robot.reset()
+        self.gyro_sensor.reset_angle(045)
         while (abs(self.robot.distance()) < distance * 10):
             self.left_motor.run(speed_left)
             self.right_motor(speed_right)
+            self.write(self.robot.distance())
         self.robot.stop()
+        
+
     
     def run_straight (self, distance):
         """
