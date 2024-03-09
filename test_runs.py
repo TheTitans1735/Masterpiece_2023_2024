@@ -64,10 +64,11 @@ def M10_Sound_Mixr():
     ilan.speed_formula(40,400,False)
     # ilan.drive_by_seconds(400,0.8)
     ilan.turn(-80)
+    wait(200)
     ilan.speed_formula(12,450)
     #ilan.wait_for_button(text="turn")
     ilan.turn(28,150)
-    wait(1000)
+    wait(500)
     ilan.robot.stop()
     ilan.drive_by_seconds(-200,1)
 
@@ -76,56 +77,39 @@ def flower():
 # """מבצע משימות M14"""
     Debug=True
     precise_distance=True
-    # ilan.pid_gyro(61,300,precise_distance=False)
-    ilan.right_medium_motor.dc(50)
-    ilan.right_medium_motor.stop()
-    ilan.speed_formula(55.5 ,400)
+    # ilan.right_medium_motor.dc(50)
+    # ilan.right_medium_motor.stop()
+    ilan.speed_formula(55.5 ,250)
     # ilan.wait_for_button("a")
-    ilan.turn(-36)
-    ilan.wait_for_button("after turn",debug=True)
+    ilan.turn(-30)
+    # ilan.wait_for_button("after turn",debug=True)
     ilan.speed_formula(30,320)
-    ilan.wait_for_button("turn",Debug)
+    # ilan.wait_for_button("turn",debug=True)
     ilan.turn(4)
     ilan.speed_formula(19,300)
     # ilan.turn(40)
-    ilan.wait_for_button(text="f")
+    # ilan.wait_for_button("F",debug=True)
     ilan.pid_gyro(-13,300)
-    ilan.wait_for_button(text="g")
+    # ilan.wait_for_button("G",debug=True)
     # ilan.pid_gyro(-9)
-    ilan.turn(25)
-    ilan.wait_for_button(text="r",debug=Debug)
+    ilan.turn(20)
+    # ilan.wait_for_button("R",debug=True)
     ilan.speed_formula(-3,100)
-    ilan.wait_for_button(Debug)
+    # ilan.wait_for_button("S",debug=True)
     ilan.robot.drive(-80,-24)
     wait(2200)
     ilan.robot.stop()
-    ilan.wait_for_button("...")
-    ilan.drive_by_seconds(-250,1)
-    ilan.pid_gyro_until_color_in_one_sensor(Color.WHITE,stop_on_right=False)
-    ilan.speed_formula(16,200)
-    # ilan.wait_for_button("turn",debug)
-    # ilan.turn(-190)
-    # # ilan.turn(5)
-    # # ilan.wait_for_button("drive",debug)
-    # ilan.speed_formula(27,250,Forward_Is_True=False)
-    # # ilan.wait_for_button("Turn")
-    # ilan.turn(90)
-    # # ilan.wait_for_button("Turn")
-    # ilan.speed_formula(18,150,Forward_Is_True=True)
-    # ilan.right_medium_motor.run_angle(500,5000)
-    # # ilan.wait_for_button("Turn")
-    # # ilan.speed_formula(3,70)
-    # # ilan.turn(14)
-    # # ilan.speed_formula(7,70)
-    # # ilan.right_medium_motor.run_angle(3500,250)
-
-    # # ilan.speed_formula(15,250,Forward_Is_True=False)
-    # # ilan.turn(-30)
-    # # ilan.wait_for_button("...")
-    # # ilan.speed_formula(12,80)
-    
-    # ilan.pid_gyro(20,200)
-    
+    # ilan.wait_for_button("T",debug=True)
+    ilan.speed_formula(10,300,Forward_Is_True=False)
+    # ilan.wait_for_button("A",debug=True)
+    ilan.turn(-10,150)
+    # ilan.wait_for_button("B",debug=True)
+    ilan.speed_formula(105,325)
+    # ilan.wait_for_button("d",debug=True)
+    ilan.turn(-65  )
+    # ilan.wait_for_button("E",debug=True)
+    ilan.speed_formula(63,300)
+   
 @timeit    
 def test():
     # # ilan.right_medium_motor.dc(5000)
@@ -134,8 +118,10 @@ def test():
     # wait(100000000000000000)
     # ilan.robot.stop()
     # ilan.drive_angle(2,220,200)
-    ilan.speed_formula(10,250,Forward_Is_True=False)
-
+    ilan.pid_gyro(99,200)
+    ilan.turn(-10)
+    ilan.pid_gyro(10,250,Forward_Is_True=False)
+ 
 
 
 @timeit
@@ -182,7 +168,7 @@ def Virtual_reality_artist_Creation_machine():
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(48 ,350,precise_distance=False)
+    ilan.pid_gyro(555550,350,precise_distance=False)
     # # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
     wait(2400)
@@ -211,6 +197,16 @@ def M08_Doli_camera_2():
     ilan.wait_for_button(debug = ttt,text = "turn")
     ilan.turn(3)
     ilan.drive_by_seconds(-500,1.5)
+
+@timeit
+def ORNGE_MAN():
+    "מבצע מסימה 1234"
+
+    ilan.pid_gyro(90,6666666666666666666666)
+    ilan.turn(-10)
+    ilan.pid_gyro(10,6666666666666666666666,Forward_Is_True=False)
+    
+
 
 # @timeit
 # def Show():
@@ -295,7 +291,7 @@ def running ():
         ("1 - flower",flower),
         ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
         ("3 - Dolly Camera", M08_Dolly_Camera),
-         # ("program test", program_test),
+         ("test",test),
         ("7 - Dolly Camera B",M08_Doli_camera_2),
         ("8 - Show On!!!",Show1),
     ]
