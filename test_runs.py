@@ -171,7 +171,7 @@ def Virtual_reality_artist_Creation_machine():
     ilan.pid_gyro(555550,350,precise_distance=False)
     # # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
-    wait(2400)
+    wait(1750)
     ilan.left_medium_motor.stop()
     ilan.pid_gyro(48,400,False,precise_distance=False)
     # ilan.drive_by_seconds(-250,2.011)
@@ -182,10 +182,10 @@ def M08_Doli_camera_2():
     """מבצע משימה M08 המשך"""
     # ttt=True
     ttt=False
-    ilan.pid_gyro(34,250,precise_distance=False)
+    ilan.pid_gyro(34,320,precise_distance=False)
     wait(200)
     ilan.wait_for_button(debug = ttt,text = "turn")
-    ilan.turn(-0.75)
+    # ilan.turn(-0.35)
     ilan.wait_for_button(debug = ttt,text = "drive back")
     ilan.pid_gyro(14.95,230,Forward_Is_True=False,precise_distance=False)
     ilan.wait_for_button(debug = ttt,text = "turn")
