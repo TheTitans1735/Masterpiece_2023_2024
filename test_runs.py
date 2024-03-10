@@ -149,7 +149,7 @@ def M02_switch_scenery():
     ilan.pid_gyro(9,250,Forward_Is_True=False)
     ilan.turn(-13)
     ilan.pid_gyro(2,250,Forward_Is_True=False)
-    ilan.turn(2)
+    ilan.turn(0.5)
     ilan.speed_formula(50,400)
     ilan.turn(50)
     ilan.speed_formula(70,400)
@@ -199,8 +199,8 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-500,1.5)
 
 @timeit
-def ORNGE_MAN():
-    "מבצע מסימה 1234"
+def ORNGE_MEN():
+    "מבצע משימה 1234"
 
     ilan.pid_gyro(90,6666666666666666666666)
     ilan.turn(-10)
@@ -245,7 +245,7 @@ def Show1():
     ilan.pid_gyro(45,200,False,precise_distance=True)
     # ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
-    ilan.wait_for_button("drive back",Debug)   
+    # ilan.wait_for_button("drive back",Debug)   
     # ilan.drive_by_seconds(-200,0.8)
     # ilan.wait_for_button("drive forword",Debug)
     # ilan.drive_by_seconds(200,1.5)
@@ -286,14 +286,14 @@ def running ():
     #         running = False
 
     Runs = [
-        ("4 - switch scenery", M02_switch_scenery),
-        ("5 - Sound Mixer", M10_Sound_Mixr),
-        ("1 - flower",flower),
-        ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("3 - Dolly Camera", M08_Dolly_Camera),
-         ("test",test),
-        ("7 - Dolly Camera B",M08_Doli_camera_2),
-        ("8 - Show On!!!",Show1),
+        ("1 - switch scenery", M02_switch_scenery),
+        ("2 - Sound Mixer", M10_Sound_Mixr),
+        ("3 - flower",flower),
+        ("4 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("5 - Dolly Camera", M08_Dolly_Camera),
+        ("6 - Dolly Camera B",M08_Doli_camera_2),
+        ("7 - Show On!!!",Show1),
+        ('TEST',test)
     ]
 
     current_run = 0
