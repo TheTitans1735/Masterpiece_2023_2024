@@ -171,7 +171,7 @@ def Virtual_reality_artist_Creation_machine():
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(555550,350,precise_distance=False)
+    ilan.pid_gyro(50,350,precise_distance=False)
     # # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
     wait(1750)
@@ -289,13 +289,13 @@ def running ():
     #         running = False
 
     Runs = [
-        ("1 - switch scenery", M02_switch_scenery),
-        ("2 - Sound Mixer", M10_Sound_Mixr),
-        ("3 - flower",flower),
-        ("4 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("5 - Dolly Camera", M08_Dolly_Camera),
+        ("1 - Show On!!!",Show1),
+        ("2 - Dolly Camera", M08_Dolly_Camera),
+        ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("4 - flower",flower),
+        ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
-        ("7 - Show On!!!",Show1),
+        ("7 - switch scenery", M02_switch_scenery),
         ('TEST',test)
     ]
 
