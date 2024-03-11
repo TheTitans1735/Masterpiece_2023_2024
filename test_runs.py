@@ -129,6 +129,7 @@ def M02_switch_scenery():
 
     """מבצע משימות M02 M03"""
 
+    
     ilan.turn(-3)
     # ilan.wait_for_button(text="eeee")
     #ilan.pid_gyro(56,300,precise_distance=False)
@@ -147,12 +148,14 @@ def M02_switch_scenery():
     # ilan.wait_for_button(text="turn")
     ilan.turn(90,200)
     ilan.pid_gyro(9,250,Forward_Is_True=False)
-    ilan.turn(-13)
+    ilan.turn(-15)
+    wait(100)
     ilan.pid_gyro(2,250,Forward_Is_True=False)
-    ilan.turn(2)
+    ilan.turn(20)
+    ilan.wait_for_button(text="A")
     ilan.speed_formula(50,400)
-    ilan.turn(50)
-    ilan.speed_formula(70,400)
+    ilan.turn(65)
+    ilan.speed_formula(62,400,)
     # ilan.pid_gyro(1,250,Forward_Is_True=False)
     # ilan.speed_formula(5,250)
     # ilan.turn(100)
