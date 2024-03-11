@@ -70,7 +70,7 @@ def M10_Sound_Mixr():
     ilan.turn(28,150)
     wait(500)
     ilan.robot.stop()
-    ilan.drive_by_seconds(-200,1)
+    ilan.speed_formula(56,200)
 
 @timeit
 def flower():
@@ -172,7 +172,7 @@ def Virtual_reality_artist_Creation_machine():
     """מבצע משימה M12,M13"""
 
     ilan.pid_gyro(50,350,precise_distance=False)
-    # # ilan.wait_for_button(text="text",debug=True)
+    # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
     wait(1750)
     ilan.left_medium_motor.stop()
@@ -262,7 +262,7 @@ def Show1():
     ilan.turn(-80)
     # ilan.wait_for_button("drive back",Debug)
     # ilan.pid_gyro(65,300,False,precise_distance=False)
-    ilan.drive_by_seconds(-400,2.3)
+    ilan.drive_by_seconds(-400,2.1)
     # ilan.turn(90)
 
 TEXT_MENU = """Choose Run: 
@@ -292,11 +292,11 @@ def running ():
         ("1 - Show On!!!",Show1),
         ("2 - Dolly Camera", M08_Dolly_Camera),
         ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("4 - flower",flower),
+        ("4 - Flower",flower),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
-        ("7 - switch scenery", M02_switch_scenery),
-        ('TEST',test)
+        ("7 - Switch scenery", M02_switch_scenery)
+        # ("TEST",test)        
     ]
 
     current_run = 0
