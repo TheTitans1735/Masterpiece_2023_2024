@@ -92,7 +92,8 @@ def flower():
     ilan.pid_gyro(-13,300)
     # ilan.wait_for_button("G",debug=True)
     # ilan.pid_gyro(-9)
-    ilan.turn(20)
+    # ilan.turn(20)
+    ilan.turn_until_seconds(1,22)
     # ilan.wait_for_button("R",debug=True)
     ilan.speed_formula(-3,100)
     # ilan.wait_for_button("S",debug=True)
@@ -112,16 +113,17 @@ def flower():
    
 @timeit    
 def test():
-    # # ilan.right_medium_motor.dc(5000)
-    # # wait(2500)
+    # ilan.right_medium_motor.dc(5000)
+    # wait(2500)
     # ilan.robot.drive(-100,360)
     # wait(100000000000000000)
     # ilan.robot.stop()
     # ilan.drive_angle(2,220,200)
-    ilan.pid_gyro(99,200)
-    ilan.turn(-10)
-    ilan.pid_gyro(10,250,Forward_Is_True=False)
- 
+    # ilan.pid_gyro(99,200)
+    # ilan.turn(-10)
+    # ilan.pid_gyro(10,250,Forward_Is_True=False)
+    ilan.turn_until_seconds(1,22)
+
 
 
 @timeit
@@ -295,8 +297,8 @@ def running ():
         ("4 - Flower",flower),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
-        ("7 - Switch scenery", M02_switch_scenery)
-        # ("TEST",test)        
+        ("7 - Switch scenery", M02_switch_scenery),
+        ("TEST",test),        
     ]
 
     current_run = 0
