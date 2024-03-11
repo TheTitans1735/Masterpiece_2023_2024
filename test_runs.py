@@ -174,7 +174,7 @@ def Virtual_reality_artist_Creation_machine():
     ilan.pid_gyro(555550,350,precise_distance=False)
     # # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
-    wait(2400)
+    wait(1750)
     ilan.left_medium_motor.stop()
     ilan.pid_gyro(48,400,False,precise_distance=False)
     # ilan.drive_by_seconds(-250,2.011)
@@ -185,10 +185,10 @@ def M08_Doli_camera_2():
     """מבצע משימה M08 המשך"""
     # ttt=True
     ttt=False
-    ilan.pid_gyro(34,250,precise_distance=False)
+    ilan.pid_gyro(34,320,precise_distance=False)
     wait(200)
     ilan.wait_for_button(debug = ttt,text = "turn")
-    ilan.turn(-0.75)
+    # ilan.turn(-0.35)
     ilan.wait_for_button(debug = ttt,text = "drive back")
     ilan.pid_gyro(14.95,230,Forward_Is_True=False,precise_distance=False)
     ilan.wait_for_button(debug = ttt,text = "turn")
@@ -202,8 +202,8 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-500,1.5)
 
 @timeit
-def ORNGE_MAN():
-    "מבצע מסימה 1234"
+def ORNGE_MEN():
+    "מבצע משימה 1234"
 
     ilan.pid_gyro(90,6666666666666666666666)
     ilan.turn(-10)
@@ -248,7 +248,7 @@ def Show1():
     ilan.pid_gyro(45,200,False,precise_distance=True)
     # ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
-    ilan.wait_for_button("drive back",Debug)   
+    # ilan.wait_for_button("drive back",Debug)   
     # ilan.drive_by_seconds(-200,0.8)
     # ilan.wait_for_button("drive forword",Debug)
     # ilan.drive_by_seconds(200,1.5)
@@ -289,14 +289,14 @@ def running ():
     #         running = False
 
     Runs = [
-        ("4 - switch scenery", M02_switch_scenery),
-        ("5 - Sound Mixer", M10_Sound_Mixr),
-        ("1 - flower",flower),
-        ("6 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("3 - Dolly Camera", M08_Dolly_Camera),
-         ("test",test),
-        ("7 - Dolly Camera B",M08_Doli_camera_2),
-        ("8 - Show On!!!",Show1),
+        ("1 - switch scenery", M02_switch_scenery),
+        ("2 - Sound Mixer", M10_Sound_Mixr),
+        ("3 - flower",flower),
+        ("4 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("5 - Dolly Camera", M08_Dolly_Camera),
+        ("6 - Dolly Camera B",M08_Doli_camera_2),
+        ("7 - Show On!!!",Show1),
+        ('TEST',test)
     ]
 
     current_run = 0
