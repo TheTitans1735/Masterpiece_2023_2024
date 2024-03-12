@@ -289,10 +289,10 @@ def ORNGE_MEN():
 def Show1():
 
     """M06 M07מבצע משימות"""
-    Debug=True
+    Debug=False
     # Debug=True
     # ilan.left_medium_motor.run_time(400,800) 
-    # ilan.wait_for_button("",Debug)
+    ilan.wait_for_button("",Debug)
     ilan.pid_gyro(45,200,False,precise_distance=True)
     # ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
@@ -301,11 +301,11 @@ def Show1():
     # ilan.wait_for_button("drive forword",Debug)
     # ilan.drive_by_seconds(200,1.5)
     ilan.drive_by_seconds(200,1.1)
-    # ilan.wait_for_button("speen motor",Debug)
+    ilan.wait_for_button("speen motor",Debug)
     ilan.left_medium_motor.run_angle(900,-300)
-    # ilan.wait_for_button("drive back",Debug)
+    ilan.wait_for_button("drive back",Debug)
     ilan.drive_by_seconds(-300,0.5)
-    # ilan.wait_for_button("turn",Debug)
+    ilan.wait_for_button("turn",Debug)
     ilan.left_medium_motor.run_angle(600,250,wait=False)
     ilan.turn(-80)
     # ilan.wait_for_button("drive back",Debug)

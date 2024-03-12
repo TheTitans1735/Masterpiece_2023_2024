@@ -246,9 +246,9 @@ def Show1():
     Debug=True
     # Debug=True
     # ilan.left_medium_motor.run_time(400,800) 
-    # ilan.wait_for_button("",Debug)
+    ilan.wait_for_button("",Debug)
     ilan.pid_gyro(45,200,False,precise_distance=True)
-    # ilan.wait_for_button("turn",Debug)
+    ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
     # ilan.wait_for_button("drive back",Debug)   
     # ilan.drive_by_seconds(-200,0.8)
@@ -262,10 +262,11 @@ def Show1():
     # ilan.wait_for_button("turn",Debug)
     ilan.left_medium_motor.run_angle(600,250,wait=False)
     ilan.turn(-80)
-    # ilan.wait_for_button("drive back",Debug)
+    ilan.wait_for_button("drive back",Debug)
     # ilan.pid_gyro(65,300,False,precise_distance=False)
     ilan.drive_by_seconds(-400,2.1)
     # ilan.turn(90)
+    ilan
 
 TEXT_MENU = """Choose Run: 
   < - Left run 
