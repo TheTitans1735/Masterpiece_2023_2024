@@ -82,7 +82,7 @@ def flower():
     # ilan.right_medium_motor.stop()
     ilan.speed_formula(55.5,250)
     # ilan.wait_for_button("a")
-    ilan.turn(-82)
+    ilan.turn(-38)
     # ilan.wait_for_button("after turn",debug=True)
     ilan.speed_formula(30,320)
     # ilan.wait_for_button("turn",debug=True)
