@@ -70,7 +70,7 @@ def M10_Sound_Mixr():
     ilan.turn(28,150)
     wait(500)
     ilan.robot.stop()
-    ilan.speed_formula(56,200)
+    ilan.speed_formula(53,200,Forward_Is_True=False)
 
 
 @timeit
@@ -80,9 +80,9 @@ def flower():
     precise_distance=True
     # ilan.right_medium_motor.dc(50)
     # ilan.right_medium_motor.stop()
-    ilan.speed_formula(55.5 ,250)
+    ilan.speed_formula(55.5,250)
     # ilan.wait_for_button("a")
-    ilan.turn(-38)
+    ilan.turn(-82)
     # ilan.wait_for_button("after turn",debug=True)
     ilan.speed_formula(30,320)
     # ilan.wait_for_button("turn",debug=True)
@@ -105,9 +105,10 @@ def flower():
     # wait(100)
     ilan.speed_formula(10,150,Forward_Is_True=False)
     # ilan.wait_for_button("A",debug=True)
-    ilan.speed_formula(4,150)
+    ilan.speed_formula(8,150)
+    ilan.wait_for_button(text="qqqq")
     ilan.turn(-6,150)
-    ilan.wait_for_button("B",debug=True )
+    # ilan.wait_for_button("B",debug=True )
     ilan.speed_formula(105,325)
     # ilan.wait_for_button("d",debug=True)
     ilan.turn(-65)
