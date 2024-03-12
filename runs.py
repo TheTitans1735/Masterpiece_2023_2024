@@ -82,7 +82,7 @@ def flower():
     # ilan.right_medium_motor.stop()
     ilan.speed_formula(55.5,250)
     # ilan.wait_for_button("a")
-    ilan.turn(-38)
+    ilan.turn(-45)
     # ilan.wait_for_button("after turn",debug=True)
     ilan.speed_formula(30,320)
     # ilan.wait_for_button("turn",debug=True)
@@ -116,44 +116,44 @@ def flower():
     # ilan.speed_formula(63,300)
     ilan.drive_by_seconds(400,2)
 
-# "work in jebata!!!!!!!!!!!!!!!!!!!!!!"
-# @timeit
-# def flower_1():
-#     """מבצע משימות M14"""
-#     Debug=True
-#     precise_distance=True
-#     # ilan.right_medium_motor.dc(50)
-#     # ilan.right_medium_motor.stop()
-#     ilan.speed_formula(55.5,250)
-#     # ilan.wait_for_button("a")
-#     ilan.turn(-35)
-#     ilan.wait_for_button("after turn",debug=True)
-#     ilan.speed_formula(30,320)
-#     # ilan.wait_for_button("turn",debug=True)
-#     ilan.turn(4)
-#     ilan.speed_formula(19,300)
-#     # ilan.turn(40)
-#     # ilan.wait_for_button("F",debug=True)
-#     ilan.pid_gyro(-13,300)
-#     # ilan.wait_for_button("G",debug=True)
-#     # ilan.pid_gyro(-9)
-#     ilan.turn(20)
-#     # ilan.wait_for_button("R",debug=True)
-#     ilan.speed_formula(-3,100)
-#     # ilan.wait_for_button("S",debug=True)
-#     ilan.robot.drive(-80,-24)
-#     wait(2200)
-#     ilan.robot.stop()
-#     # ilan.wait_for_button("T",debug=True)
-#     ilan.speed_formula(10,300,Forward_Is_True=False)
-#     # ilan.wait_for_button("A",debug=True)
-#     ilan.turn(-10,150)
-#     # ilan.wait_for_button("B",debug=True)
-#     ilan.speed_formula(105,325)
-#     # ilan.wait_for_button("d",debug=True)
-#     ilan.turn(-65  )
-#     # ilan.wait_for_button("E",debug=True)
-#     ilan.speed_formula(63,300)
+"work in jebata!!!!!!!!!!!!!!!!!!!!!!"
+@timeit
+def flower_1():
+    """מבצע משימות M14"""
+    Debug=True
+    precise_distance=True
+    # ilan.right_medium_motor.dc(50)
+    # ilan.right_medium_motor.stop()
+    ilan.speed_formula(60,350)
+    # ilan.wait_for_button("a")
+    ilan.turn(-35)
+    # ilan.wait_for_button("after turn",debug=True)
+    ilan.speed_formula(52,320)
+    # ilan.wait_for_button("turn",debug=True)
+    # ilan.turn(5)
+    # ilan.speed_formula(19,300)
+    # ilan.turn(40)
+    # ilan.wait_for_button("F",debug=True)
+    ilan.pid_gyro(-17,250)
+    # ilan.wait_for_button("G",debug=True)
+    # ilan.pid_gyro(-9)
+    ilan.turn_until_seconds(2,40)
+    # ilan.wait_for_button("R",debug=True)
+    ilan.speed_formula(-5,50)
+    # ilan.wait_for_button("S",debug=True)
+    ilan.robot.drive(-80,-30)
+    wait(2200)
+    ilan.robot.stop()
+    # ilan.wait_for_button("T",debug=True)
+    ilan.speed_formula(10,300,Forward_Is_True=False)
+    # ilan.wait_for_button("A",debug=True)
+    ilan.speed_formula(10,200)
+    ilan.turn(-7,100)             
+    ilan.speed_formula(90,325)
+    # ilan.wait_for_button("d",debug=True)
+    ilan.turn(-65,250)
+    # ilan.wait_for_button("E",debug=True)
+    ilan.pid_gyro(63,350)
 
 
    
@@ -337,10 +337,10 @@ def running ():
     #         running = False
 
     Runs = [
+        ("4 - Flower",flower_1),
         ("1 - Show On!!!",Show1),
         ("2 - Dolly Camera", M08_Dolly_Camera),
         ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        ("4 - Flower",flower),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
         ("7 - Switch scenery", M02_switch_scenery)
