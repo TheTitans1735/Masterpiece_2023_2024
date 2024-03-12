@@ -176,7 +176,6 @@ def M02_switch_scenery():
 
     """מבצע משימות M02 M03"""
 
-    
     ilan.turn(-3)
     # ilan.wait_for_button(text="eeee")
     #ilan.pid_gyro(56,300,precise_distance=False)
