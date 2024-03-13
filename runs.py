@@ -218,12 +218,12 @@ def Virtual_reality_artist_Creation_machine():
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(50,350,precise_distance=False)
+    ilan.pid_gyro(50,250,precise_distance=False)
     # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
     wait(1750)
     ilan.left_medium_motor.stop()
-    ilan.pid_gyro(48,400,False,precise_distance=False)
+    ilan.pid_gyro(50,250,False,precise_distance=False)
     # ilan.drive_by_seconds(-250,2.011)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
 
@@ -289,23 +289,25 @@ def Show1():
 
     """M06 M07מבצע משימות"""
     Debug=False
-    # Debug=True
+    #Debug=True
     # ilan.left_medium_motor.run_time(400,800) 
     ilan.wait_for_button("",Debug)
-    ilan.pid_gyro(45,200,False,precise_distance=True)
+    ilan.pid_gyro(43,200,False,precise_distance=True)
     # ilan.wait_for_button("turn",Debug)
     ilan.turn(-100)
     # ilan.wait_for_button("drive back",Debug)   
     # ilan.drive_by_seconds(-200,0.8)
     # ilan.wait_for_button("drive forword",Debug)
     # ilan.drive_by_seconds(200,1.5)
-    ilan.drive_by_seconds(200,1.1)
+    ilan.drive_by_seconds(200,1.3)
     ilan.wait_for_button("speen motor",Debug)
+    wait(200)
+    ilan.left_medium_motor.run_angle(500,-300)
     ilan.left_medium_motor.run_angle(900,-300)
     ilan.wait_for_button("drive back",Debug)
     ilan.drive_by_seconds(-300,0.5)
     ilan.wait_for_button("turn",Debug)
-    ilan.left_medium_motor.run_angle(600,250,wait=False)
+    ilan.left_medium_motor.run_angle(600,400,wait=False)
     ilan.turn(-80)
     # ilan.wait_for_button("drive back",Debug)
     # ilan.pid_gyro(65,300,False,precise_distance=False)
@@ -315,7 +317,7 @@ def Show1():
 TEXT_MENU = """Choose Run: 
   < - Left run 
   > - Right AP 
-  O - Center run 
+  O - Center run
   V - Down run 
   ^ - Up run"""
 
@@ -336,10 +338,10 @@ def running ():
     #         running = False
 
     Runs = [
-        ("4 - Flower",flower_1),
         ("1 - Show On!!!",Show1),
         ("2 - Dolly Camera", M08_Dolly_Camera),
         ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("4 - Flower",flower_1),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
         ("7 - Switch scenery", M02_switch_scenery)
