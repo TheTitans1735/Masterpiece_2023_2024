@@ -14,8 +14,7 @@ def timeit(func):
         end_time = time.perf_counter()
         total_time = end_time - start_time
         print('Function {}{} {} Took {} seconds'.format(func.__name__, args, kwargs, total_time))
-        ilan.write("Run time: {} sec.".format(round(total_time, 1)))
-        return result
+        return "Run time: {} sec.".format(round(total_time, 1))
     return timeit_wrapper
 
 
@@ -134,7 +133,7 @@ def flower_1():
     # ilan.speed_formula(19,300)
     # ilan.turn(40)
     # ilan.wait_for_button("F",debug=True)
-    ilan.pid_gyro(-17,250)
+    ilan.pid_gyro(-16.5,250)
     # ilan.wait_for_button("G",debug=True)
     # ilan.pid_gyro(-9)
     ilan.turn_until_seconds(2,40)
@@ -151,7 +150,7 @@ def flower_1():
     ilan.turn(-7,100)             
     ilan.speed_formula(90,325)
     # ilan.wait_for_button("d",debug=True)
-    ilan.turn(-65,250)
+    ilan.turn(-70.24546,250)
     # ilan.wait_for_button("E",debug=True)
     ilan.pid_gyro(63,350)
 
@@ -220,15 +219,21 @@ def Virtual_reality_artist_Creation_machine():
 
     """מבצע משימה M12,M13"""
 
-    ilan.pid_gyro(50,250,precise_distance=False)
+    ilan.speed_formula(50,250)
     # ilan.wait_for_button(text="text",debug=True)
     ilan.left_medium_motor.dc(160)
-    wait(1750)
+    ilan.drive_by_seconds(50,1)
+    wait(2000)
     ilan.left_medium_motor.stop()
-    ilan.pid_gyro(50,250,False,precise_distance=False)
+    # ilan.turn_until_seconds(1.25,7)
+    # ilan.left_medium_motor.dc(160)
+    # ilan.drive_by_seconds(50,1)
+    # wait(1500)
+    # ilan.left_medium_motor.stop()
+    # ilan.turn(-7)
+    ilan.pid_gyro(52,250,False,precise_distance=False)
     # ilan.drive_by_seconds(-250,2.011)
     # ilan.pid_gyro(46.5,300,Forward_Is_True= False,precise_distance=False)
-
 @timeit
 def M08_Doli_camera_2():
     """מבצע משימה M08 המשך"""
@@ -251,13 +256,10 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-500,1.5)
 
 @timeit
-def ORNGE_MEN():
+def orenge():
     "מבצע משימה 1234"
 
-    ilan.pid_gyro(90,6666666666666666666666)
-    ilan.turn(-10)
-    ilan.pid_gyro(10,6666666666666666666666,Forward_Is_True=False)
-    
+    ilan.drive_by_seconds(25,30)
 
 
 # @timeit
@@ -347,8 +349,8 @@ def running ():
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
         ("7 - Switch scenery", M02_switch_scenery)
-        # ("TEST",test)        
-    ]
+        # ("      clean", orenge),
+        ]
 
     current_run = 0
     ilan.write(Runs[current_run][0])
@@ -387,14 +389,14 @@ def running ():
                 if current_run == 0:
                     elsapsed_time.reset()
 
-                Runs[current_run][1]()
+                run_time=Runs[current_run][1]()
             
                 current_run += 1
 
                 if current_run >= len(Runs):
                     current_run = 0
 
-                ilan.write("Elapsed: {} s \n{}".format(round(elsapsed_time.time()/1000.0, 1), Runs[current_run][0]))
+                ilan.write("{}\nElapsed: {} s \n{}".format(run_time,round(elsapsed_time.time()/1000.0, 1), Runs[current_run][0]))
         except Exception as EX :
             print(str(EX))
             wait(1500)
