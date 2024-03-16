@@ -79,30 +79,30 @@ def flower_1():
     "נסיון 2 לפרח"
     """אחרי שהפונקציה לא עבדה החלטנו לעשות נסיון נוסף."""
     "r=אחורה"
+    "F= ישר"
     debug=False
     precise_distance=True
     ilan.speed_formula(50,300)
     # ilan.wait_for_button("turn",debug=True)
     ilan.turn(-30)
     # ilan.wait_for_button("after turn",debug=True)
-    ilan.speed_formula(52,320)
+    ilan.speed_formula(55,320)
     # ilan.wait_for_button("turn right")
-    ilan.turn(25)
+    ilan.turn(30)
     ilan.pid_gyro(8, 100, False)
     # ilan.wait_for_button("TRY",debug)
-    ilan.turn(20)
+    ilan.turn(27.546)
     # ilan.wait_for_button("FLAWAR")
-    ilan.pid_gyro(13, 100, False)
+    ilan.pid_gyro(11.54, 100, False)
     # ilan.wait_for_button("drive back")
     ilan.turn(56)
-    ilan.pid_gyro(10,150)
+    ilan.pid_gyro(12,150)
     ilan.turn(-5)
-    ilan.turn(55)
-    # ilan.turn_to_threshold(ilan.color_sensor_right,True)
-    ilan.wait_for_button("after turn")
-    ilan.speed_formula(95, 400, False)
-    ilan.wait_for_button("about to turn left")
-    ilan.turn(-45)
+    ilan.turn(63)
+    ilan.wait_for_button("F")
+    ilan.speed_formula(100,400,Forward_Is_True=False)
+    # ilan.wait_for_button("about to turn left")
+    ilan.turn(-53.152)
     ilan.drive_by_seconds(-400, 2)
     # ilan.pid_gyro(-12,250)
     # ilan.wait_for_button("turn",debug)
@@ -124,8 +124,16 @@ def flower_1():
     # # ilan.wait_for_button("drive",debug=True)
     # ilan.pid_gyro(63,350)
 
+@timeit
+def oreng_man():
 
-   
+    ilan.speed_formula(47,350)
+    ilan.turn(-17)
+    ilan.speed_formula(6,300)
+    ilan.speed_formula(13,200,Forward_Is_True=False)
+    ilan.turn_until_seconds(2,40,turn_right=True)
+    ilan.speed_formula(50,300,Forward_Is_True=False)
+
 @timeit    
 def test():
 
@@ -281,7 +289,9 @@ def running ():
         ("4 - Flower",flower_1),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
-        ("7 - Switch scenery", M02_switch_scenery)
+        ("7 - Switch scenery", M02_switch_scenery),
+        ("oreng", oreng_man),
+        ("oreng man",oreng_man),
         # ("      clean", orenge),
         ]
 
