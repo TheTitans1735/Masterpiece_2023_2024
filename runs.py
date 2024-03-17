@@ -44,9 +44,9 @@ def M01_3D_Movie():
 @timeit
 def M08_Dolly_Camera():
     """מבצע את משימות M08"""
-    ilan.pid_gyro(18.5,450,Kp=0,precise_distance=False)
+    ilan.pid_gyro(18.5,250,Kp=0,precise_distance=False)
     wait(350)
-    ilan.drive_by_seconds(300,1.5)
+    ilan.drive_by_seconds(100,1.5)
     wait(500)
     ilan.wait_for_button(debug=False,text="Drive Back")
     ilan.speed_formula(50.8,450,Forward_Is_True=False,Kp=0)
