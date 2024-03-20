@@ -70,7 +70,7 @@ class Robot:
 
 
 
-    def speed_formula(self, Td, Vmax = 300, Forward_Is_True = True, Kp = 3.09, Ki= 0.027, Kd = 3.02, alternative_cond = lambda : True): 
+    def speed_formula(self, Td, Vmax = 300, Forward_Is_True = True, Kp = 3.09, Ki= 0.027, Kd = 3.02, alternative_cond = lambda : True,slow_stop=True): 
         """
         PID Gyro נסיעה ישרה באמצעות מנגנון
         """
@@ -96,14 +96,16 @@ class Robot:
         # initialize
         integral = 0 
         derivative = 0 
-        lastError = 0 
+        lastError = 0
+        Ts = 0 
         
         ## Start Loop ##
         while (abs(self.robot.distance()) <Td * 10) and alternative_cond():
             X = self.robot.distance()
             wait(1) #ע"מ לא לגזול את כל המשאבים
             XdivD = abs(X) / (Td * 10.0)
-            Ts = 4 * Vmax * (XdivD - (XdivD ** 2))
+            if not slow_stop or XdivD < 0.5:
+                Ts = 4 * Vmax * (XdivD - (XdivD ** 2))
             if Ts < 20:
                 Ts = 20
             self.check_forced_exit()
@@ -968,9 +970,11 @@ class Robot:
     def rst_to_angle_zero(self):
         """מטרת פונקציה זו היא שהרובוט יתקן את עצמו בעזרת סיבוב לזווית 0"""
         while(self.gyro_sensor.angle() < 0):
+            self.check_forced_exit()
             self.left_motor.run(30)
             self.right_motor.run(-30)
         while(self.gyro_sensor.angle() > 0):
+            self.check_forced_exit()
             self.left_motor.run(-30)
             self.right_motor.run(30)
         self.robot.stop()

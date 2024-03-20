@@ -122,8 +122,15 @@ def test():
     # ilan.pid_gyro(99,200)
     # ilan.turn(-10)
     # ilan.pid_gyro(10,250,Forward_Is_True=False)
-    ilan.turn_until_seconds(1,22)
-
+    # ilan.turn_until_seconds(1,22)
+    ilan.speed_formula(30,300)
+    ilan.wait_for_button("R")
+    ilan.speed_formula(30,300,False)
+    ilan.wait_for_button("80%")
+    ilan.speed_formula(30,300,slow_stop=False)
+    ilan.wait_for_button("R")
+    ilan.speed_formula(30,300,False,slow_stop=False)
+    
 
 
 @timeit
