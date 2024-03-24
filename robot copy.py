@@ -104,9 +104,8 @@ class Robot:
             X = self.robot.distance()
             wait(1) #ע"מ לא לגזול את כל המשאבים
             XdivD = abs(X) / (Td * 10.0)
-            Ts = 4 * Vmax * (XdivD - (XdivD ** 2))
-            if not slow_stop and XdivD > 0.5:
-                Ts = Vmax 
+            if not slow_stop or XdivD < 0.5:
+                Ts = 4 * Vmax * (XdivD - (XdivD ** 2))
             if Ts < 20:
                 Ts = 20
             self.check_forced_exit()

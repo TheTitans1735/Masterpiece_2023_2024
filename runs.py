@@ -55,7 +55,7 @@ def M08_Dolly_Camera():
 def M10_Sound_Mixr():
     """מבצע את משימות M10"""
     debug = False
-    ilan.speed_formula(45,400)
+    ilan.speed_formula(45,250)
     # ilan.wait_for_button(text="turn",debug=False)
     ilan.turn(14)
     ilan.speed_formula(40,400,False)
@@ -64,10 +64,10 @@ def M10_Sound_Mixr():
     wait(200)
     ilan.speed_formula(12,450)
     #ilan.wait_for_button(text="turn")
-    ilan.turn(28,150)
+    ilan.turn_until_seconds(2,28)
     wait(500)
     ilan.robot.stop()
-    ilan.speed_formula(45,200,Forward_Is_True=False)
+    ilan.speed_formula(20,200,Forward_Is_True=False)
 
 
 
@@ -89,22 +89,22 @@ def flower_1():
     ilan.speed_formula(55,320)
     # ilan.wait_for_button("turn right")
     ilan.turn(30)
-    ilan.pid_gyro(8, 100, False)
+    ilan.pid_gyro(9, 100, False)
     # ilan.wait_for_button("TRY",debug)
-    ilan.turn(27.546)
+    ilan.turn_until_seconds(0.75,24)
     # ilan.wait_for_button("FLAWAR")
-    ilan.pid_gyro(11.54, 100, False)
+    ilan.pid_gyro(9, 100, False)
     # ilan.wait_for_button("drive back")
-    ilan.turn(51)
+    ilan.turn(57)
     ilan.pid_gyro(12,150)
-    ilan.turn(-5)
-    ilan.turn(50)
+    ilan.turn(-3)
+    ilan.turn(45)
     # ilan.wait_for_button("F")
-    ilan.speed_formula(40,400,Forward_Is_True=False)
+    ilan.speed_formula(34,400,Forward_Is_True=False)
     # ilan.wait_for_button("about to turn left")
-    ilan.turn(-53.152)
+    ilan.turn(-50)
     ilan.drive_by_seconds(-400, 1.5)
-    ilan.turn(40)
+    ilan.turn(30)
     ilan.drive_by_seconds(-400, 1.5)
     # ilan.pid_gyro(-12,250)
     # ilan.wait_for_button("turn",debug)
@@ -129,8 +129,8 @@ def flower_1():
 @timeit
 def oreng_man():
 
-    ilan.speed_formula(47,350)
-    ilan.turn(-17)
+    ilan.speed_formula(48,350)
+    ilan.turn(-22)
     ilan.speed_formula(6,300)
     ilan.speed_formula(13,200,Forward_Is_True=False)
     ilan.turn_until_seconds(2,40,turn_right=True)
@@ -150,13 +150,13 @@ def M02_switch_scenery():
 
     """מבצע משימות M02 M03"""
 
-    ilan.speed_formula(70,400)
+    ilan.speed_formula(66,400)
     ilan.turn(-40,200)
     for i in range(1):
-        ilan.speed_formula(5.5,150)
+        ilan.speed_formula(8,147)
         ilan.speed_formula(8,150,False)
-    ilan.turn(80)
-    ilan.pid_gyro(60,400,False,precise_distance=False)
+    ilan.turn(70)
+    ilan.pid_gyro(70,400,False,precise_distance=False)
 
  
 
@@ -180,7 +180,7 @@ def M08_Doli_camera_2():
     """מבצע משימה M08 המשך"""
     t=False
     "r=אחורה"
-    ilan.speed_formula(34,150,slow_stop=False)
+    ilan.speed_formula(34,300,slow_stop=False)
     wait(200)
     # ilan.turn(-0.35)
     ilan.wait_for_button(debug=t,text="R")
@@ -193,7 +193,7 @@ def M08_Doli_camera_2():
     ilan.drive_by_seconds(-200,0.5)
     ilan.wait_for_button(debug=t,text="turn")
     ilan.turn(3)
-    ilan.drive_by_seconds(-500,1.5)
+    ilan.drive_by_seconds(-500,1.1)
 
 @timeit
 def orenge():
@@ -248,10 +248,10 @@ def Show1():
     wait(200)
     # ilan.left_medium_motor.run_angle(500, -300)
     # ilan.left_medium_motor.run_angle(900, 100)
-    ilan.turn(5)
+    #ilan.turn(5)
     ilan.left_medium_motor.run_angle(900,-600)
     ilan.turn(-5)
-    ilan.wait_for_button("drive back",Debug)
+    # ilan.wait_for_button("drive back",Debug)
     ilan.drive_by_seconds(-300,0.5)
     # ilan.wait_for_button("turn",Debug)
     ilan.left_medium_motor.run_angle(600,400,wait=False)
@@ -286,17 +286,16 @@ def running ():
 
     Runs = [
         
-        # ("1 - Show On!!!",Show1),
-        # ("2 - Dolly Camera", M08_Dolly_Camera),
-        # ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
-        # ("4 - Flower",flower_1),
-        
-        ("7 - Switch scenery", M02_switch_scenery),
-        ("oreng man",oreng_man),
-        # ("oreng", oreng_man),
+        ("1 - Show On!!!",Show1),
+        ("2 - Dolly Camera", M08_Dolly_Camera),
+        ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
+        ("4 - Flower",flower_1),
+        ("5 - Switch scenery", M02_switch_scenery),
+        ("6 - oreng man",oreng_man),
         ("5 - Sound Mixer", M10_Sound_Mixr),
         ("6 - Dolly Camera B",M08_Doli_camera_2),
         # ("      clean", orenge),
+        # ("oreng", oreng_man),
         ]
 
     current_run = 0
