@@ -131,7 +131,13 @@ def M02_switch_scenery():
     ilan.turn(70)
     ilan.pid_gyro(70,400,False,precise_distance=False)
 
- 
+@timeit
+def show_status():
+    while True:
+        ilan.show_status()
+        if (Button.LEFT in ilan.ev3.buttons.pressed()):
+            break
+        wait(50)
 
 @timeit         
 def Virtual_reality_artist_Creation_machine(): 
@@ -179,6 +185,7 @@ def Show1():
     ilan.drive_by_seconds(200,1.3)
     ilan.wait_for_button("speen motor",Debug)
     wait(200)
+    ilan.turn(5)
     ilan.left_medium_motor.run_angle(900,-600)
     ilan.turn(-5)
     ilan.wait_for_button("drive back",Debug)
@@ -209,6 +216,7 @@ def running ():
 
     Runs = [
         
+        ("0 - show status",show_status),
         ("1 - Show On!!!",Show1),
         ("2 - Dolly Camera", M08_Dolly_Camera),
         ("3 - Virtual reality artist",Virtual_reality_artist_Creation_machine),
@@ -253,7 +261,7 @@ def running ():
 
             if Button.CENTER in ilan.ev3.buttons.pressed():
 
-                if current_run == 0:
+                if current_run <= 1:
                     elsapsed_time.reset()
 
                 run_time=Runs[current_run][1]()

@@ -7,7 +7,7 @@ from pybricks.ev3devices import ColorSensor, GyroSensor, Motor
 from pybricks.hubs import EV3Brick
 from pybricks.parameters import Color, Direction, Port
 from pybricks.robotics import DriveBase
-from pybricks.tools import DataLog, StopWatch, wait
+from pybricks.tools import DataLog, StopWatch, wait 
 
 import time
 # import datetime
@@ -188,8 +188,19 @@ class Robot:
             self.right_motor.hold()
 
         self.robot.stop()
+    
+    def show_status(self):
+        self.robot.reset() 
+        current_voltage = self.ev3.battery.voltage() / 1000
+        self.write(
+            "gyro: {}\n l color: {}\n r color: {}\n battery: {}".format(
+                self.robot.angle(),
+                self.color_sensor_left.reflection(),
+                self.color_sensor_right.reflection(),
+                current_voltage
+            )
+        )
 
-        
     def pid_gyro(self, Td, Ts = 150, Forward_Is_True = True, Kp = 3.1, Ki= 0.025, Kd =3.3, alternative_cond = lambda : True,precise_distance = True):
         """
         PID Gyro נסיעה ישרה באמצעות מנגנון
