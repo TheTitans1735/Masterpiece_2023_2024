@@ -133,6 +133,7 @@ def M02_switch_scenery():
 
 @timeit
 def show_status():
+    ilan.robot.reset() 
     while True:
         ilan.show_status()
         if (Button.LEFT in ilan.ev3.buttons.pressed()):

@@ -190,7 +190,6 @@ class Robot:
         self.robot.stop()
     
     def show_status(self):
-        self.robot.reset() 
         current_voltage = self.ev3.battery.voltage() / 1000
         self.write(
             "gyro: {}\n l color: {}\n r color: {}\n battery: {}".format(
